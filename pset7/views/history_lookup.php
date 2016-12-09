@@ -15,7 +15,7 @@
 
     <tr align="left">
         <td><?= $position["transaction"] ?></td>
-        <td><?= $position["date"] ?></td>
+        <td><?= date_format(date_create($position["date"]), 'd/m/y')?>,  <?= date_format(date_create($position["date"]), 'g:i A'); ?></td>
         <td><?= $position["symbol"] ?></td>
         <td><?= $position["shares"] ?></td>
         <td><?= number_format(($position["price"]), 2, '.', ',') ?></td>
