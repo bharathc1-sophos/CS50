@@ -21,19 +21,18 @@
             // compare hash of user's input against hash that's in database
             if (password_verify($_POST["old_password"], $row["hash"]))
             {
+                
                 if (isset($_POST["password"]) && $_POST["password"]){
-                    
+                    //verify the the new password with confirmation
                     if($_POST["password"] == $_POST["confirmation"]){
                         $check=CS50::query("UPDATE users SET hash=? WHERE id=?", password_hash($_POST["password"], PASSWORD_DEFAULT) , $_SESSION["id"]);
-                        if($check == 0){
-                            apologize("username already exists");
-                        }
                     }
                     else{
                         apologize("your passwords did not match");
                     }
                 }
                 else{
+                    //if new password does not match with confirmation
                     apologize("you must enter your new password");
                 }
 

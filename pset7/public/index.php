@@ -33,5 +33,5 @@
     
     render("portfolio.php",["positions" => $positions, "title" => "Portfolio"]);
     }
-    render("portfolio.php", ["title" => "Portfolio"]);
+    
 ?>
